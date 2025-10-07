@@ -3,13 +3,17 @@ import numpy as np
 import yaml
 import os
 
-def change_format(df):
-    df['Embedding_Respuesta'] = df['Embedding_Respuesta'].apply(
-        lambda x: np.fromstring(x.replace("[", "").replace("]", "").replace("\n", ""), sep=' '))
-    df['Embedding_Concat1'] = df['Embedding_Concat1'].apply(
-        lambda x: np.fromstring(x.replace("[", "").replace("]", "").replace("\n", ""), sep=' '))
-    df['Embedding_Concat2'] = df['Embedding_Concat2'].apply(
-        lambda x: np.fromstring(x.replace("[", "").replace("]", "").replace("\n", ""), sep=' '))
+def change_format(df, columna = 'default'):
+    if columna =='default':
+        df['Embedding_Respuesta'] = df['Embedding_Respuesta'].apply(
+            lambda x: np.fromstring(x.replace("[", "").replace("]", "").replace("\n", ""), sep=' '))
+        df['Embedding_Concat1'] = df['Embedding_Concat1'].apply(
+            lambda x: np.fromstring(x.replace("[", "").replace("]", "").replace("\n", ""), sep=' '))
+        df['Embedding_Concat2'] = df['Embedding_Concat2'].apply(
+            lambda x: np.fromstring(x.replace("[", "").replace("]", "").replace("\n", ""), sep=' '))
+    else: 
+        df[columna] = df[columna].apply(
+            lambda x: np.fromstring(x.replace("[", "").replace("]", "").replace("\n", ""), sep=' '))
     
     return df 
 

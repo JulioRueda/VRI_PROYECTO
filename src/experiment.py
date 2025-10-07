@@ -50,13 +50,21 @@ def run_experiment(cfg: DictConfig):
         df_T = change_format(df_T) 
         df_t = change_format(df_t)
         for columna in COLUMNS:
-
+            #PARECE QUE ESTO NO ESTÁ FUNCIONANDO, REVISALO CON CALMA
+            print('ingresó al for columna')
+            print(rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}" not in df_T.columns)
             if rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}" not in df_T.columns:
-                reduced_train, reduced_test = reducer(df_T,df_t,columna,cfg.reducer.params.n_components)
+                print('ingresó al if')
+                reduced_train, reduced_test = reducer.reducir_dimension(df_T,df_t,columna,cfg.reducer.params.n_components)
                 df_T[rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}"] = list(reduced_train)
                 df_t[rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}"] = list(reduced_test)
+                
                 df_T.to_excel(file_reduced_T)
                 df_t.to_excel(file_reduced_t)
+            else:
+                print('ingresó al else')
+                df_T = change_format(df_T, columna= rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}")
+                df_t = change_format(df_t, columna= rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}")
 
     else:
         if find_file(file_normalized_T):

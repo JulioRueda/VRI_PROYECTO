@@ -24,4 +24,5 @@ mlruns/
 outputs/
 src/__pycache__/
 multirun/
+notebooks/
 

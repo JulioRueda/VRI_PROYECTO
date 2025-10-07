@@ -25,6 +25,6 @@ hydra:
 # Configuración de MLflow
 mlflow:
   tracking_uri: "file:./mlruns"
-  experiment_name: "Clasificadores_por_defecto"
+  experiment_name: "Clasificadores_por_defecto_ALL"
 
 #todo lo que no sea modificado por swwep se hereda de base
