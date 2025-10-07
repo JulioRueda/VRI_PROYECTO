@@ -1,0 +1,29 @@
+# Lista de configuración por defecto
+defaults:
+  - dataset: dataset
+  - reducer: pca
+  - model: rf
+  - experiment: base
+  - override hydra/sweeper: basic
+
+# Parámetros comunes a todos los experimentos
+base:
+  seed: 42
+  test_size: 0.2
+
+# Configuración del barrido (sweep)
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    params:
+      model: mlp, rf, svm, xgb
+      reducer: kpca, pca, umap, ae
+      reducer.params.n_components: 2, 4, 8, 16, 32, 64, 128, 256
+      experiment.seed: 42, 52, 30, 25, 38
+
+# Configuración de MLflow
+mlflow:
+  tracking_uri: "file:./mlruns"
+  experiment_name: "Clasificadores_por_defecto"
+
+#todo lo que no sea modificado por swwep se hereda de base

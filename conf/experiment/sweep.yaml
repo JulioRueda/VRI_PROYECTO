@@ -1,0 +1,11 @@
+defaults:
+ - base
+
+
+hydra:
+  mode: MULTIRUN
+  sweeper:
+    params:
+      model: [mlp, rf, svm] 
+      reducer: [kpca, pca] 
+      reducer.params.n_components: [2,4,8,16,32,64,128,256] 

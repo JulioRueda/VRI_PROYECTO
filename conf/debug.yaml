@@ -1,0 +1,19 @@
+# Lista de configuración por defecto
+defaults:
+  - dataset: dataset
+  - reducer: pca
+  - model: rf
+  - experiment: base
+  - override hydra/sweeper: basic
+
+# Parámetros comunes a todos los experimentos
+base:
+  seed: 42
+  test_size: 0.2
+
+# Configuración de MLflow
+mlflow:
+  tracking_uri: "file:./mlruns"
+  experiment_name: "debug_experiment"
+
+#todo lo que no sea modificado por swwep se hereda de base

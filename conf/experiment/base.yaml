@@ -1,0 +1,7 @@
+seed: 42 
+n_runs: 2 
+test_size: 0.2 
+
+mlflow:
+  tracking_uri: "file:./mlruns"
+  experiment_name: "Prueba_cero"

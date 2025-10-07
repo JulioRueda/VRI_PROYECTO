@@ -1,0 +1,3 @@
+name: umap
+params:
+  n_components: 10

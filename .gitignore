@@ -10,9 +10,18 @@ __pycache__/
 
 # Datos grandes
 data/raw/*
+data/processed_trials/*
 data/processed/*
+data/reduced/*
 !data/raw/.gitkeep
 !data/processed/.gitkeep
-
+!data/reduced/.gitkeep
+!data/processed_trials/.gitkeep
 # MLflow
 mlruns/
+
+#others
+
+src/__pycache__/
+multirun/
+
