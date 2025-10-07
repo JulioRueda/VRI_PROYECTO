@@ -1,4 +1,4 @@
-# Proyecto de Machine Learning
+# Proyecto VRI
 
 Este repositorio contiene los archivos necesarios para correr los experimentos del VRI
 
