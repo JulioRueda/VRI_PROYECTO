@@ -21,7 +21,7 @@ data/reduced/*
 mlruns/
 
 #others
-
+outputs/
 src/__pycache__/
 multirun/
 

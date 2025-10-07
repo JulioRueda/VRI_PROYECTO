@@ -49,12 +49,14 @@ def run_experiment(cfg: DictConfig):
         df_t = pd.read_excel(file_reduced_T)
         df_T = change_format(df_T) 
         df_t = change_format(df_t)
-        if rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}" not in df_T.columns:
-            reduced_train, reduced_test = reducer(df_T,df_t,columna,cfg.reducer.params.n_components)
-            df_T[rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}"] = list(reduced_train)
-            df_t[rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}"] = list(reduced_test)
-            df_T.to_excel(file_reduced_T)
-            df_t.to_excel(file_reduced_t)
+        for columna in COLUMNS:
+
+            if rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}" not in df_T.columns:
+                reduced_train, reduced_test = reducer(df_T,df_t,columna,cfg.reducer.params.n_components)
+                df_T[rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}"] = list(reduced_train)
+                df_t[rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}"] = list(reduced_test)
+                df_T.to_excel(file_reduced_T)
+                df_t.to_excel(file_reduced_t)
 
     else:
         if find_file(file_normalized_T):
@@ -126,7 +128,7 @@ def run_experiment(cfg: DictConfig):
         #MACHINE LEARNING
         model = get_model(name = cfg.model.name)
         with mlflow.start_run(
-            run_name=f"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}_{cfg.model.name}"
+            run_name=f"{cfg.experiment.seed}_{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}_{cfg.model.name}"
 
         ):
             model.fit(np.vstack(df_T[rf"{columna}_{cfg.reducer.name}_{cfg.reducer.params.n_components}"]), df_T[cfg.dataset.target])

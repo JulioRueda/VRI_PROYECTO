@@ -16,10 +16,11 @@ hydra:
   mode: MULTIRUN
   sweeper:
     params:
+      experiment.seed: 42, 52, 30, 25, 38
       model: mlp, rf, svm, xgb
       reducer: kpca, pca, umap, ae
       reducer.params.n_components: 2, 4, 8, 16, 32, 64, 128, 256
-      experiment.seed: 42, 52, 30, 25, 38
+
 
 # Configuración de MLflow
 mlflow:

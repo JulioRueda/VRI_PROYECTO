@@ -1,14 +1,14 @@
 # Lista de configuración por defecto
 defaults:
   - dataset: dataset
-  - reducer: pca
-  - model: rf
+  - reducer: kpca
+  - model: mlp
   - experiment: base
   - override hydra/sweeper: basic
 
 # Parámetros comunes a todos los experimentos
 base:
-  seed: 42
+  seed: 38
   test_size: 0.2
 
 # Configuración de MLflow
