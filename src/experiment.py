@@ -47,7 +47,7 @@ def run_experiment(cfg: DictConfig):
         print('caso optimo')
         #Optimal case
         df_T = pd.read_excel(file_reduced_T)
-        df_t = pd.read_excel(file_reduced_T)
+        df_t = pd.read_excel(file_reduced_t)
         df_T = change_format(df_T) 
         df_t = change_format(df_t)
         for columna in COLUMNS:
@@ -154,6 +154,7 @@ def run_experiment(cfg: DictConfig):
             mlflow.log_param('n_dim', cfg.reducer.params.n_components) 
 
             for k,v in metrics.items():
+                print(columna,k,v)
                 mlflow.log_metric(k,v) 
             
             mlflow.sklearn.log_model(model, name='model')
