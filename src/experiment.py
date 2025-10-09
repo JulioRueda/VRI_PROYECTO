@@ -32,15 +32,16 @@ def run_experiment(cfg: DictConfig):
     COLUMNS = ['Embedding_Respuesta','Embedding_Concat1', 'Embedding_Concat2']
 
     #REDUCTION
+   
     reducer = get_reducer(cfg.reducer.name)
-    file_reduced_T = rf"G:\Mi unidad\Mi CIUP\LOS REALES CODIGOS\VRI\data\reduced\{cfg.dataset.name}_{cfg.experiment.seed}_{cfg.reducer.name}_Train_N.xlsx"
-    file_reduced_t = rf"G:\Mi unidad\Mi CIUP\LOS REALES CODIGOS\VRI\data\reduced\{cfg.dataset.name}_{cfg.experiment.seed}_{cfg.reducer.name}_Test_N.xlsx"
+    file_reduced_T = rf"C:\Users\jc.ruedah\Desktop\VRI_carpeta\VRI_PROYECTO\data\reduced\{cfg.dataset.name}_{cfg.experiment.seed}_{cfg.reducer.name}_Train_N.xlsx"
+    file_reduced_t = rf"C:\Users\jc.ruedah\Desktop\VRI_carpeta\VRI_PROYECTO\data\reduced\{cfg.dataset.name}_{cfg.experiment.seed}_{cfg.reducer.name}_Test_N.xlsx"
 
-    file_normalized_T = rf"G:\Mi unidad\Mi CIUP\LOS REALES CODIGOS\VRI\data\processed_trials\normalized_trials\{cfg.dataset.name}_{cfg.experiment.seed}_Train_N.xlsx"
-    file_normalized_t = rf"G:\Mi unidad\Mi CIUP\LOS REALES CODIGOS\VRI\data\processed_trials\normalized_trials\{cfg.dataset.name}_{cfg.experiment.seed}_Test_N.xlsx"
+    file_normalized_T = rf"C:\Users\jc.ruedah\Desktop\VRI_carpeta\VRI_PROYECTO\data\processed_trials\normalized_trials\{cfg.dataset.name}_{cfg.experiment.seed}_Train_N.xlsx"
+    file_normalized_t = rf"C:\Users\jc.ruedah\Desktop\VRI_carpeta\VRI_PROYECTO\data\processed_trials\normalized_trials\{cfg.dataset.name}_{cfg.experiment.seed}_Test_N.xlsx"
 
-    file__T = rf"G:\Mi unidad\Mi CIUP\LOS REALES CODIGOS\VRI\data\processed_trials\{cfg.dataset.name}_{cfg.experiment.seed}_Train.xlsx"
-    file__t = rf"G:\Mi unidad\Mi CIUP\LOS REALES CODIGOS\VRI\data\processed_trials\{cfg.dataset.name}_{cfg.experiment.seed}_Test.xlsx"
+    file__T = rf"C:\Users\jc.ruedah\Desktop\VRI_carpeta\VRI_PROYECTO\data\processed_trials\{cfg.dataset.name}_{cfg.experiment.seed}_Train.xlsx"
+    file__t = rf"C:\Users\jc.ruedah\Desktop\VRI_carpeta\VRI_PROYECTO\data\processed_trials\{cfg.dataset.name}_{cfg.experiment.seed}_Test.xlsx"
 
     if find_file(file_reduced_T):
         print('caso optimo')

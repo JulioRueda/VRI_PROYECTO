@@ -1,7 +1,7 @@
 # Proyecto VRI
 
 Este repositorio contiene los archivos necesarios para correr los experimentos del VRI
-
+0) Funciona con python version 3.12.2
 1) instalar todas las dependencias
 2) Agregar los datos de JINA en la dirección data/processed/ el nombre del archivo dataset debe ser "Vectores_all_JINA.xlsx"
 3) ejecutar en el cmd python src/experiment.py --config-name = config

@@ -107,7 +107,7 @@ class ae():
         embeddings_train = np.vstack(df_train[columna])
         embeddings_test = np.vstack(df_test[columna])
         
-        autoencoder,encoder = mi_autoencoder(dim_reduction=reduccion)
+        autoencoder,encoder = self.mi_autoencoder(dim_reduction=reduccion)
         autoencoder.fit(
             embeddings_train,embeddings_train,
             epochs=10,

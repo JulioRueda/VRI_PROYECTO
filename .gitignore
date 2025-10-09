@@ -13,6 +13,7 @@ data/raw/*
 data/processed_trials/*
 data/processed/*
 data/reduced/*
+
 !data/raw/.gitkeep
 !data/processed/.gitkeep
 !data/reduced/.gitkeep
